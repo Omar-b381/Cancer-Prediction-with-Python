@@ -1,0 +1,5 @@
+pip
+pytest
+python-dotenv
+ruff
+-e .
