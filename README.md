@@ -1,61 +1,82 @@
-# Cancer Prediction with Python
 
-<a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
-    <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
-</a>
+# 🧪 مشروع التنبؤ بسرطان الثدي باستخدام خوارزميات تعلم الآلة
 
-a hands-on project using logistic regression for breast cancer prediction. We will be using a breast cancer dataset to build a logistic regression model that accurately predicts if a cancer is malignant or not based on certain measurements
+هذا المشروع يهدف إلى بناء نموذج تعلم آلة يمكنه التنبؤ بإصابة المريض بسرطان الثدي بناءً على بيانات طبية مأخوذة من صور الأشعة.
 
-## Project Organization
+## 📂 هيكل المشروع
 
 ```
-├── LICENSE            <- Open-source license if one is chosen
-├── Makefile           <- Makefile with convenience commands like `make data` or `make train`
-├── README.md          <- The top-level README for developers using this project.
-├── data
-│   ├── external       <- Data from third party sources.
-│   ├── interim        <- Intermediate data that has been transformed.
-│   ├── processed      <- The final, canonical data sets for modeling.
-│   └── raw            <- The original, immutable data dump.
-│
-├── docs               <- A default mkdocs project; see www.mkdocs.org for details
-│
-├── models             <- Trained and serialized models, model predictions, or model summaries
-│
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`.
-│
-├── pyproject.toml     <- Project configuration file with package metadata for 
-│                         cancer_prediction_with_python and configuration for tools like black
-│
-├── references         <- Data dictionaries, manuals, and all other explanatory materials.
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
-│
-├── setup.cfg          <- Configuration file for flake8
-│
-└── cancer_prediction_with_python   <- Source code for use in this project.
-    │
-    ├── __init__.py             <- Makes cancer_prediction_with_python a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    └── plots.py                <- Code to create visualizations
+ML-project/
+├── data/                    # ملفات البيانات (raw, processed, interim)
+├── notebooks/              # دفاتر Jupyter للتجربة والتحليل
+├── reports/                # التقارير والرسومات الناتجة
+├── cancer_prediction_with_python/
+│   ├── dataset.py          # تحميل وتنظيف البيانات
+│   ├── plots.py            # التصوير البياني
+│   └── modeling/
+│       └── train.py        # تدريب النماذج وضبط المعاملات
+├── requirements.txt
+├── pyproject.toml
+└── README.md
 ```
 
---------
+## 📊 وصف البيانات
 
+- **المصدر**: [Breast Cancer Wisconsin (Diagnostic) Data Set](https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data)
+- يحتوي على 569 عينة، و30 ميزة مشتقة من صور الأشعة.
+- المتغير المستهدف `diagnosis`:
+  - `M` = ورم خبيث
+  - `B` = ورم حميد
+
+## 🎯 هدف المشروع
+
+تطوير نموذج دقيق يمكنه تصنيف الأورام إلى حميدة أو خبيثة بناءً على الخصائص الفيزيائية للخلايا.
+
+## ⚙️ خطوات العمل
+
+1. تحميل البيانات من Kaggle وتنظيفها.
+2. استكشاف البيانات بصريًا لفهم التوزيعات والأنماط.
+3. تجهيز الميزات وتقسيم البيانات إلى تدريب واختبار.
+4. تدريب نموذج Decision Tree مع ضبط المعاملات باستخدام Grid Search.
+5. تقييم النموذج على بيانات الاختبار.
+
+## 📈 الأداء
+
+- تم استخدام خوارزمية Decision Tree.
+- تم استخدام `GridSearchCV` لضبط المعاملات.
+- دقة التصنيف على مجموعة الاختبار تم تقييمها باستخدام accuracy score.
+
+## 🛠️ المتطلبات
+
+```
+pandas
+matplotlib
+seaborn
+scikit-learn
+```
+
+لتثبيت الحزم:
+
+```bash
+pip install -r requirements.txt
+```
+
+## 👨‍💻 كيف تبدأ
+
+```bash
+git clone https://github.com/username/breast-cancer-prediction
+cd breast-cancer-prediction
+jupyter notebook
+```
+
+## 🧠 نماذج مستقبلية
+
+- تجربة خوارزميات أخرى مثل:
+  - Random Forest
+  - Logistic Regression
+  - SVM
+- استخدام تقنيات تحسين الميزات Feature Selection.
+
+## 📝 الرخصة
+
+هذا المشروع مفتوح المصدر تحت رخصة MIT.
